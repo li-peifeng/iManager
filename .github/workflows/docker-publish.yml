@@ -18,18 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: yarn
-          cache-dependency-path: frontend/yarn.lock
-
-      - name: Build frontend assets
-        working-directory: frontend
+      - name: Verify committed frontend dist exists
         run: |
-          yarn install --frozen-lockfile
-          yarn build
+          test -d frontend/dist
+          test -f frontend/dist/index.html
 
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v3
