@@ -11,6 +11,9 @@ export function SiteFooter() {
 									LEO iManager
 								</a>
 							</li>
+							<li className="list-inline-item">
+								2.15.0
+							</li>
 						</ul>
 					</div>
 				</div>
