@@ -1,4 +1,61 @@
 {
+	"2fa.backup-codes-remaining": {
+		"defaultMessage": "剩余备用恢复码：{count}"
+	},
+	"2fa.backup-warning": {
+		"defaultMessage": "请将这些备用恢复码保存在安全位置。每个恢复码只能使用一次。"
+	},
+	"2fa.disable": {
+		"defaultMessage": "关闭双因素认证"
+	},
+	"2fa.disable-confirm": {
+		"defaultMessage": "确认关闭 2FA"
+	},
+	"2fa.disable-warning": {
+		"defaultMessage": "关闭双因素认证会降低账户安全性。"
+	},
+	"2fa.disabled": {
+		"defaultMessage": "未启用"
+	},
+	"2fa.done": {
+		"defaultMessage": "我已保存备用恢复码"
+	},
+	"2fa.enable": {
+		"defaultMessage": "启用双因素认证"
+	},
+	"2fa.enabled": {
+		"defaultMessage": "已启用"
+	},
+	"2fa.enter-code": {
+		"defaultMessage": "输入验证码"
+	},
+	"2fa.enter-code-disable": {
+		"defaultMessage": "输入验证码以关闭"
+	},
+	"2fa.regenerate": {
+		"defaultMessage": "重新生成"
+	},
+	"2fa.regenerate-backup": {
+		"defaultMessage": "重新生成备用恢复码"
+	},
+	"2fa.regenerate-instructions": {
+		"defaultMessage": "请输入验证码以生成新的备用恢复码。旧的恢复码将失效。"
+	},
+	"2fa.secret-key": {
+		"defaultMessage": "密钥"
+	},
+	"2fa.setup-instructions": {
+		"defaultMessage": "请使用身份验证器应用扫描此二维码，或手动输入密钥。"
+	},
+	"2fa.status": {
+		"defaultMessage": "状态"
+	},
+	"2fa.title": {
+		"defaultMessage": "双因素认证"
+	},
+	"2fa.verify-enable": {
+		"defaultMessage": "验证并启用"
+	},
 	"access-list": {
 		"defaultMessage": "通信规则"
 	},
@@ -209,6 +266,9 @@
 	"column.name": {
 		"defaultMessage": "名称"
 	},
+	"column.owner": {
+		"defaultMessage": "所有者"
+	},
 	"column.protocol": {
 		"defaultMessage": "协议"
 	},
@@ -388,6 +448,9 @@
 	},
 	"loading": {
 		"defaultMessage": "加载中···"
+	},
+	"login.2fa-title": {
+		"defaultMessage": "双因素认证"
 	},
 	"login.title": {
 		"defaultMessage": "登录您的账户"
@@ -652,6 +715,9 @@
 	},
 	"user.switch-light": {
 		"defaultMessage": "切换到浅色模式"
+	},
+	"user.two-factor": {
+		"defaultMessage": "双因素认证"
 	},
 	"username": {
 		"defaultMessage": "用户名"

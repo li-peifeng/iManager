@@ -28,7 +28,7 @@ async function appStart() {
 			internalCertificate.initTimer();
 			internalIpRanges.initTimer();
 
-			const server = app.listen(3000, () => {
+			const server = app.listen(3000, "0.0.0.0", () => {
 				logger.info(`Backend PID ${process.pid} listening on port 3000 ...`);
 
 				process.on("SIGTERM", () => {

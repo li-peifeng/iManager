@@ -36,7 +36,7 @@ export function SiteHeader() {
 								alt="Logo"
 							/>
 						</div>
-						Nginx Proxy Manager
+						iManager
 					</NavLink>
 				</div>
 				<div className="navbar-nav flex-row order-md-last">

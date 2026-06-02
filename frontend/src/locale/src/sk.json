@@ -281,6 +281,9 @@
 	"column.name": {
 		"defaultMessage": "Názov"
 	},
+	"column.owner": {
+		"defaultMessage": "používateľa"
+	},
 	"column.protocol": {
 		"defaultMessage": "Protokol"
 	},

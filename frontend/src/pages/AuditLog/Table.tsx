@@ -16,6 +16,7 @@ export default function Table({ data, isFetching, onSelectItem }: Props) {
 		() => [
 			columnHelper.accessor((row: AuditLog) => row.user, {
 				id: "user.avatar",
+				header: intl.formatMessage({ id: "user" }),
 				cell: (info: any) => {
 					const value = info.getValue();
 					return <GravatarFormatter url={value ? value.avatar : ""} name={value ? value.name : ""} />;

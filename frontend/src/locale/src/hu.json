@@ -281,6 +281,9 @@
 	"column.name": {
 		"defaultMessage": "Név"
 	},
+	"column.owner": {
+		"defaultMessage": "Felhasználó"
+	},
 	"column.protocol": {
 		"defaultMessage": "Protokoll"
 	},

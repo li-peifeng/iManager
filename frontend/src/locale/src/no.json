@@ -281,6 +281,9 @@
 	"column.name": {
 		"defaultMessage": "Navn"
 	},
+	"column.owner": {
+		"defaultMessage": "Bruker"
+	},
 	"column.protocol": {
 		"defaultMessage": "Protokoll"
 	},

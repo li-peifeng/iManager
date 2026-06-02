@@ -224,6 +224,9 @@
 	"column.name": {
 		"defaultMessage": "이름"
 	},
+	"column.owner": {
+		"defaultMessage": "사용자"
+	},
 	"column.protocol": {
 		"defaultMessage": "프로토콜"
 	},

@@ -110,6 +110,13 @@ label.row {
 	position: static;
 }
 
+/* Keep short terms (e.g. SSL/Owner) on one line in tables. */
+.table-responsive .table th,
+.table-responsive .table td {
+	min-width: 5rem;
+	white-space: nowrap;
+}
+
 /* Fix for Tabler scrollbar compensation */
 @media (min-width: 992px) {
   :host, :root {

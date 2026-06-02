@@ -209,6 +209,9 @@
 	"column.name": {
 		"defaultMessage": "名前"
 	},
+	"column.owner": {
+		"defaultMessage": "ユーザー"
+	},
 	"column.protocol": {
 		"defaultMessage": "プロトコル"
 	},

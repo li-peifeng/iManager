@@ -212,6 +212,9 @@
 	"column.name": {
 		"defaultMessage": "Nama"
 	},
+	"column.owner": {
+		"defaultMessage": "Pengguna"
+	},
 	"column.protocol": {
 		"defaultMessage": "Protokol"
 	},

@@ -52,6 +52,7 @@ export default function Table({
 		() => [
 			columnHelper.accessor((row: any) => row, {
 				id: "avatar",
+				header: intl.formatMessage({ id: "user" }),
 				cell: (info: any) => {
 					const value = info.getValue();
 					return <GravatarFormatter url={value.avatar} name={value.name} />;

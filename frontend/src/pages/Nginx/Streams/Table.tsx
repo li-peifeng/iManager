@@ -35,6 +35,7 @@ export default function Table({ data, isFetching, isFiltered, onEdit, onDelete, 
 		() => [
 			columnHelper.accessor((row: any) => row.owner, {
 				id: "owner",
+				header: intl.formatMessage({ id: "column.owner" }),
 				enableSorting: false,
 				cell: (info: any) => {
 					const value = info.getValue();

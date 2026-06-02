@@ -281,6 +281,9 @@
 	"column.name": {
 		"defaultMessage": "Nom"
 	},
+	"column.owner": {
+		"defaultMessage": "Utilisateur"
+	},
 	"column.protocol": {
 		"defaultMessage": "Protocole"
 	},

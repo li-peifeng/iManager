@@ -209,6 +209,9 @@
 	"column.name": {
 		"defaultMessage": "Nome"
 	},
+	"column.owner": {
+		"defaultMessage": "Utente"
+	},
 	"column.protocol": {
 		"defaultMessage": "Protocollo"
 	},

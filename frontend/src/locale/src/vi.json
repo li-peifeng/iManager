@@ -209,6 +209,9 @@
 	"column.name": {
 		"defaultMessage": "Tên"
 	},
+	"column.owner": {
+		"defaultMessage": "Người dùng"
+	},
 	"column.protocol": {
 		"defaultMessage": "Giao thức"
 	},

@@ -10,6 +10,7 @@ services:
       - 3080:80
       - 3081:81
       - 3443:443
+      - 9229:9229
     networks:
       nginx_proxy_manager:
         aliases:
@@ -24,6 +25,8 @@ services:
       # specifically for dev:
       DEBUG: "true"
       DEVELOPMENT: "true"
+      NODE_INSPECT: "true"
+      NODE_INSPECT_PORT: "9229"
       LE_STAGING: "true"
       # db:
       # DB_MYSQL_HOST: 'db'

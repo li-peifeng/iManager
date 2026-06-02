@@ -281,6 +281,9 @@
 	"column.name": {
 		"defaultMessage": "Имя"
 	},
+	"column.owner": {
+		"defaultMessage": "Пользователь"
+	},
 	"column.protocol": {
 		"defaultMessage": "Протокол"
 	},
