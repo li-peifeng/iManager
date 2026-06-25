@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import { Button, LocalePicker, Page, ThemeSwitcher } from "src/components";
 import { useAuthState } from "src/context";
-import { useHealth } from "src/hooks";
 import { intl, T } from "src/locale";
 import { validateEmail, validateString } from "src/modules/Validations";
 import styles from "./index.module.css";
@@ -168,15 +167,6 @@ function LoginForm() {
 
 export default function Login() {
 	const { twoFactorChallenge } = useAuthState();
-	const health = useHealth();
-
-	const getVersion = () => {
-		if (!health.data) {
-			return "";
-		}
-		const v = health.data.version;
-		return `v${v.major}.${v.minor}.${v.revision}`;
-	};
 
 	return (
 		<Page className="page page-center">
@@ -197,7 +187,7 @@ export default function Login() {
 						{twoFactorChallenge ? <TwoFactorForm /> : <LoginForm />}
 					</div>
 				</div>
-				<div className="text-center text-secondary mt-3">{getVersion()}</div>
+				<div className="text-center text-secondary mt-3">2.15.1</div>
 			</div>
 		</Page>
 	);

@@ -12,7 +12,7 @@ export function SiteFooter() {
 								</a>
 							</li>
 							<li className="list-inline-item">
-								2.15.0
+								2.15.1
 							</li>
 						</ul>
 					</div>
