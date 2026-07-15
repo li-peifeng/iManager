@@ -105,9 +105,9 @@ label.row {
 	}
 }
 
-/* Fix for dropdown menus being clipped by table-responsive containers. */
-.table-responsive:has(.dropdown-menu.show) {
-	overflow: visible;
+/* Fix for dropdown menus being clipped by horizontal scroll containers. */
+.dropdown-overflow-visible {
+	overflow: visible !important;
 }
 
 .table-responsive .dropdown {
