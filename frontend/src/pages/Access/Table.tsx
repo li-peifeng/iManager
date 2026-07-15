@@ -1,8 +1,9 @@
-import { IconDotsVertical, IconEdit, IconTrash } from "@tabler/icons-react";
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { createColumnHelper, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useMemo } from "react";
 import type { AccessList } from "src/api/backend";
 import { EmptyData, GravatarFormatter, HasPermission, ValueWithDateFormatter } from "src/components";
+import { TableActionMenu } from "src/components/Table/TableActionMenu";
 import { TableLayout } from "src/components/Table/TableLayout";
 import { intl, T } from "src/locale";
 import { ACCESS_LISTS, MANAGE } from "src/modules/Permissions";
@@ -61,50 +62,40 @@ export default function Table({ data, isFetching, isFiltered, onEdit, onDelete, 
 				id: "id",
 				cell: (info: any) => {
 					return (
-						<span className="dropdown">
-							<button
-								type="button"
-								className="btn dropdown-toggle btn-action btn-sm px-1"
-								data-bs-boundary="viewport"
-								data-bs-toggle="dropdown"
+						<TableActionMenu>
+							<span className="dropdown-header">
+								<T
+									id="object.actions-title"
+									tData={{ object: "access-list" }}
+									data={{ id: info.row.original.id }}
+								/>
+							</span>
+							<a
+								className="dropdown-item"
+								href="#"
+								onClick={(e) => {
+									e.preventDefault();
+									onEdit?.(info.row.original.id);
+								}}
 							>
-								<IconDotsVertical />
-							</button>
-							<div className="dropdown-menu dropdown-menu-end">
-								<span className="dropdown-header">
-									<T
-										id="object.actions-title"
-										tData={{ object: "access-list" }}
-										data={{ id: info.row.original.id }}
-									/>
-								</span>
+								<IconEdit size={16} />
+								<T id="action.edit" />
+							</a>
+							<HasPermission section={ACCESS_LISTS} permission={MANAGE} hideError>
+								<div className="dropdown-divider" />
 								<a
 									className="dropdown-item"
 									href="#"
 									onClick={(e) => {
 										e.preventDefault();
-										onEdit?.(info.row.original.id);
+										onDelete?.(info.row.original.id);
 									}}
 								>
-									<IconEdit size={16} />
-									<T id="action.edit" />
+									<IconTrash size={16} />
+									<T id="action.delete" />
 								</a>
-								<HasPermission section={ACCESS_LISTS} permission={MANAGE} hideError>
-									<div className="dropdown-divider" />
-									<a
-										className="dropdown-item"
-										href="#"
-										onClick={(e) => {
-											e.preventDefault();
-											onDelete?.(info.row.original.id);
-										}}
-									>
-										<IconTrash size={16} />
-										<T id="action.delete" />
-									</a>
-								</HasPermission>
-							</div>
-						</span>
+							</HasPermission>
+						</TableActionMenu>
 					);
 				},
 				meta: {

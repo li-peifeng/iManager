@@ -105,11 +105,6 @@ label.row {
 	}
 }
 
-/* Fix for dropdown menus being clipped by horizontal scroll containers. */
-.dropdown-overflow-visible {
-	overflow: visible !important;
-}
-
 .table-responsive .dropdown {
 	position: static;
 }

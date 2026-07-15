@@ -1,4 +1,4 @@
-import { IconDotsVertical, IconDownload, IconRefresh, IconTrash } from "@tabler/icons-react";
+import { IconDownload, IconRefresh, IconTrash } from "@tabler/icons-react";
 import { createColumnHelper, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useMemo } from "react";
 import type { Certificate } from "src/api/backend";
@@ -10,6 +10,7 @@ import {
 	GravatarFormatter,
 	HasPermission,
 } from "src/components";
+import { TableActionMenu } from "src/components/Table/TableActionMenu";
 import { TableLayout } from "src/components/Table/TableLayout";
 import { intl, T } from "src/locale";
 import { showCustomCertificateModal, showDNSCertificateModal, showHTTPCertificateModal } from "src/modals";
@@ -100,61 +101,51 @@ export default function Table({ data, isFetching, onDelete, onRenew, onDownload,
 				id: "id",
 				cell: (info: any) => {
 					return (
-						<span className="dropdown">
-							<button
-								type="button"
-								className="btn dropdown-toggle btn-action btn-sm px-1"
-								data-bs-boundary="viewport"
-								data-bs-toggle="dropdown"
+						<TableActionMenu>
+							<span className="dropdown-header">
+								<T
+									id="object.actions-title"
+									tData={{ object: "certificate" }}
+									data={{ id: info.row.original.id }}
+								/>
+							</span>
+							<a
+								className="dropdown-item"
+								href="#"
+								onClick={(e) => {
+									e.preventDefault();
+									onRenew?.(info.row.original.id);
+								}}
 							>
-								<IconDotsVertical />
-							</button>
-							<div className="dropdown-menu dropdown-menu-end">
-								<span className="dropdown-header">
-									<T
-										id="object.actions-title"
-										tData={{ object: "certificate" }}
-										data={{ id: info.row.original.id }}
-									/>
-								</span>
+								<IconRefresh size={16} />
+								<T id="action.renew" />
+							</a>
+							<HasPermission section={CERTIFICATES} permission={MANAGE} hideError>
 								<a
 									className="dropdown-item"
 									href="#"
 									onClick={(e) => {
 										e.preventDefault();
-										onRenew?.(info.row.original.id);
+										onDownload?.(info.row.original.id);
 									}}
 								>
-									<IconRefresh size={16} />
-									<T id="action.renew" />
+									<IconDownload size={16} />
+									<T id="action.download" />
 								</a>
-								<HasPermission section={CERTIFICATES} permission={MANAGE} hideError>
-									<a
-										className="dropdown-item"
-										href="#"
-										onClick={(e) => {
-											e.preventDefault();
-											onDownload?.(info.row.original.id);
-										}}
-									>
-										<IconDownload size={16} />
-										<T id="action.download" />
-									</a>
-									<div className="dropdown-divider" />
-									<a
-										className="dropdown-item"
-										href="#"
-										onClick={(e) => {
-											e.preventDefault();
-											onDelete?.(info.row.original.id);
-										}}
-									>
-										<IconTrash size={16} />
-										<T id="action.delete" />
-									</a>
-								</HasPermission>
-							</div>
-						</span>
+								<div className="dropdown-divider" />
+								<a
+									className="dropdown-item"
+									href="#"
+									onClick={(e) => {
+										e.preventDefault();
+										onDelete?.(info.row.original.id);
+									}}
+								>
+									<IconTrash size={16} />
+									<T id="action.delete" />
+								</a>
+							</HasPermission>
+						</TableActionMenu>
 					);
 				},
 				meta: {

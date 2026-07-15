@@ -1,5 +1,4 @@
 import {
-	IconDotsVertical,
 	IconEdit,
 	IconLock,
 	IconLogin2,
@@ -18,6 +17,7 @@ import {
 	TrueFalseFormatter,
 	ValueWithDateFormatter,
 } from "src/components";
+import { TableActionMenu } from "src/components/Table/TableActionMenu";
 import { TableLayout } from "src/components/Table/TableLayout";
 import { intl, T } from "src/locale";
 
@@ -101,103 +101,89 @@ export default function Table({
 				id: "id",
 				cell: (info: any) => {
 					return (
-						<span className="dropdown">
-							<button
-								type="button"
-								className="btn dropdown-toggle btn-action btn-sm px-1"
-								data-bs-boundary="viewport"
-								data-bs-toggle="dropdown"
+						<TableActionMenu>
+							<span className="dropdown-header">
+								<T id="object.actions-title" tData={{ object: "user" }} data={{ id: info.row.original.id }} />
+							</span>
+							<a
+								className="dropdown-item"
+								href="#"
+								onClick={(e) => {
+									e.preventDefault();
+									onEditUser?.(info.row.original.id);
+								}}
 							>
-								<IconDotsVertical />
-							</button>
-							<div className="dropdown-menu dropdown-menu-end">
-								<span className="dropdown-header">
-									<T
-										id="object.actions-title"
-										tData={{ object: "user" }}
-										data={{ id: info.row.original.id }}
-									/>
-								</span>
-								<a
-									className="dropdown-item"
-									href="#"
-									onClick={(e) => {
-										e.preventDefault();
-										onEditUser?.(info.row.original.id);
-									}}
-								>
-									<IconEdit size={16} />
-									<T id="action.edit" />
-								</a>
-								{currentUserId !== info.row.original.id ? (
-									<>
+								<IconEdit size={16} />
+								<T id="action.edit" />
+							</a>
+							{currentUserId !== info.row.original.id ? (
+								<>
+									<a
+										className="dropdown-item"
+										href="#"
+										onClick={(e) => {
+											e.preventDefault();
+											onEditPermissions?.(info.row.original.id);
+										}}
+									>
+										<IconShield size={16} />
+										<T id="action.permissions" />
+									</a>
+									<a
+										className="dropdown-item"
+										href="#"
+										onClick={(e) => {
+											e.preventDefault();
+											onSetPassword?.(info.row.original.id);
+										}}
+									>
+										<IconLock size={16} />
+										<T id="user.set-password" />
+									</a>
+									<a
+										className="dropdown-item"
+										href="#"
+										onClick={(e) => {
+											e.preventDefault();
+											onDisableToggle?.(info.row.original.id, info.row.original.isDisabled);
+										}}
+									>
+										<IconPower size={16} />
+										<T id={info.row.original.isDisabled ? "action.enable" : "action.disable"} />
+									</a>
+									{info.row.original.isDisabled ? (
+										<div className="dropdown-item text-muted">
+											<IconLogin2 size={16} />
+											<T id="user.login-as" data={{ name: info.row.original.name }} />
+										</div>
+									) : (
 										<a
 											className="dropdown-item"
 											href="#"
 											onClick={(e) => {
 												e.preventDefault();
-												onEditPermissions?.(info.row.original.id);
+												onLoginAs?.(info.row.original.id);
 											}}
 										>
-											<IconShield size={16} />
-											<T id="action.permissions" />
+											<IconLogin2 size={16} />
+											<T id="user.login-as" data={{ name: info.row.original.name }} />
 										</a>
-										<a
-											className="dropdown-item"
-											href="#"
-											onClick={(e) => {
-												e.preventDefault();
-												onSetPassword?.(info.row.original.id);
-											}}
-										>
-											<IconLock size={16} />
-											<T id="user.set-password" />
-										</a>
-										<a
-											className="dropdown-item"
-											href="#"
-											onClick={(e) => {
-												e.preventDefault();
-												onDisableToggle?.(info.row.original.id, info.row.original.isDisabled);
-											}}
-										>
-											<IconPower size={16} />
-											<T id={info.row.original.isDisabled ? "action.enable" : "action.disable"} />
-										</a>
-										{info.row.original.isDisabled ? (
-											<div className="dropdown-item text-muted">
-												<IconLogin2 size={16} />
-												<T id="user.login-as" data={{ name: info.row.original.name }} />
-											</div>
-										) : (
-											<a
-												className="dropdown-item"
-												href="#"
-												onClick={(e) => {
-													e.preventDefault();
-													onLoginAs?.(info.row.original.id);
-												}}
-											>
-												<IconLogin2 size={16} />
-												<T id="user.login-as" data={{ name: info.row.original.name }} />
-											</a>
-										)}
-										<div className="dropdown-divider" />
-										<a
-											className="dropdown-item"
-											href="#"
-											onClick={(e) => {
-												e.preventDefault();
-												onDeleteUser?.(info.row.original.id);
-											}}
-										>
-											<IconTrash size={16} />
-											<T id="action.delete" />
-										</a>
-									</>
-								) : null}
-							</div>
-						</span>
+									)}
+									<div className="dropdown-divider" />
+									<a
+										className="dropdown-item"
+										href="#"
+										onClick={(e) => {
+											e.preventDefault();
+											onDeleteUser?.(info.row.original.id);
+										}}
+									>
+										<IconTrash size={16} />
+										<T id="action.delete" />
+									</a>
+								</>
+							) : null}
+						</TableActionMenu>
 					);
 				},
 				meta: {
